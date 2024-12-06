@@ -6,45 +6,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main {
-    private static FileInputStream fis;
+
 
     public static void main(String[] args) {
-        try {
-            fis = new FileInputStream("data/1/lists.txt");
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Input data file not found!");
-        }
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+        ;
 
         ArrayList<Integer> left = new ArrayList<>();
         ArrayList<Integer> right = new ArrayList<>();
 
         try {
-            String line;
-            while((line = br.readLine()) != null) {
-                boolean leftFinished = false;
-                int number = 0;
-                for(char c : line.toCharArray()) {
-                    if(c == ' ') {
-                        if(!leftFinished) {
-                            left.add(number);
-                            number = 0;
-                        }
-                        leftFinished = true;
-                        continue;
-                    }
-                    int digit = c - 48;
 
-                    if (digit < 0 || digit > 9) {
-                        throw new NumberFormatException();
-                    }
-
-                    number *= 10;
-                    number += digit;
-                }
-                right.add(number);
-            }
 
         } catch (IOException exception) {
             JOptionPane.showMessageDialog(null, "An error occurred while reading lines!");
